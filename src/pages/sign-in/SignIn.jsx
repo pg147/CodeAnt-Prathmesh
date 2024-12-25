@@ -1,4 +1,7 @@
+// React Icons
 import { LuMoveUp } from 'react-icons/lu';
+
+// Assets
 import Logo from '/logo.png'
 import PieChart from '/pie-chart.png';
 import LogoSvg from '/logo-svg.png';
@@ -21,6 +24,8 @@ const features = [
 export default function SignIn() {
   return (
     <div className="flex w-full h-fit">
+
+      {/* Left Container */}
       <div className="h-screen flex flex-col items-center justify-center lg:w-1/2 border-r-[1.5px] border-r-outline bg-white">
         {/* Blob 1 */}
         <div className="h-fit w-[450px] p-6 rounded-3xl shadow-intense">
@@ -36,6 +41,7 @@ export default function SignIn() {
 
           <hr className='w-full bg-light my-4' />
 
+          {/* Features */}
           <div className='flex items-center justify-between w-full'>
             {features.map((feats, index) => (
               <div key={index} className='grid gap-y-1'>
@@ -48,6 +54,7 @@ export default function SignIn() {
 
         {/* Blob 2 */}
         <div className='relative left-36 bottom-3 h-fit w-[250px] p-6 rounded-3xl bg-white shadow-intense'>
+          {/* Header */}
           <div className='h-fit w-full flex justify-between items-center'>
             <img
               src={PieChart}
@@ -62,18 +69,23 @@ export default function SignIn() {
               <p className='text-sm'>This week</p>
             </div>
           </div>
+
+          {/* Feature */}
           <div className='grid gap-y-1 mt-6'>
             <h1 className='font-medium text-subHeading'>Issues fixed</h1>
             <p className='text-3xl font-semibold'>500K+</p>
           </div>
         </div>
-
+        
+        {/* Logo Svg at the bottom */}
         <img
           src={LogoSvg}
           alt="logo_svg"
           className='absolute left-0 bottom-0 h-fit w-fit'
         />
       </div>
+
+      {/* Right Container */}
       <div className="h-screen lg:w-1/2 bg-light">
 
       </div>
