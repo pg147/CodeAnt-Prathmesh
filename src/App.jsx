@@ -1,6 +1,9 @@
+import SignIn from "./pages/sign-in/SignIn";
 
 export default function App() {
   return (
-    <div className="">This is my new font</div>
+    <div className="">
+      <SignIn />
+    </div>
   )
 }
