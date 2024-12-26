@@ -136,7 +136,7 @@ export default function Repository() {
             </div>
 
             {/* Menu Content - Appears only when Menu is Triggered */}
-            <div className={`h-[100%] w-full fixed px-4 top-16 z-[20] bg-white ${isMenuOpen ? 'block inset-0' : 'hidden'}`}>
+            <div className={`h-[100%] w-full fixed px-4 top-16 z-[20] bg-white ${isMenuOpen ? 'block inset-0 overflow-y-hidden' : 'hidden'}`}>
                 {/* Select User */}
                 <select className='mt-4 w-full py-3 px-4 rounded-2xl border-[1.75px] border-outline'>
                     <option value="select-value">Select User</option>
@@ -225,7 +225,7 @@ export default function Repository() {
             </div>
 
             {/* Right Container */}
-            <div className="w-full lg:w-[80%] lg:absolute right-0 h-fit lg:bg-light lg:p-6">
+            <div className={`w-full lg:w-[80%] lg:absolute right-0 h-fit lg:bg-light lg:p-6 ${isMenuOpen ? 'hidden pointer-events-none' : '' }`}>
                 <div className='h-full w-full rounded-2xl mt-20 lg:mt-0 lg:bg-white lg:border lg:border-outline'>
                     <div className='p-4 lg:p-6'>
                         {/* Header */}
