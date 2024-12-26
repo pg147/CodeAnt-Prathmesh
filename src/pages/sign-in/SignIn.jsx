@@ -1,3 +1,6 @@
+// React imports
+import { useState } from 'react';
+
 // React Icons
 import { LuMoveUp } from 'react-icons/lu';
 
@@ -5,7 +8,6 @@ import { LuMoveUp } from 'react-icons/lu';
 import Logo from '/logo.png'
 import PieChart from '/pie-chart.png';
 import LogoSvg from '/logo-svg.png';
-import { useState } from 'react';
 
 const features = [
   {
@@ -124,7 +126,7 @@ export default function SignIn() {
 
       {/* Right Container */}
       <div className="h-screen flex justify-center items-center w-full px-4 lg:px-0 lg:w-1/2 bg-light">
-        <div className='bg-white w-full lg:w-[650px] mx-auto rounded-3xl border-x-outline p-4 lg:p-6'>
+        <div className='bg-white w-full xl:w-[500px] 2xl:w-[650px] mx-auto rounded-3xl border-x-outline p-4 lg:p-6'>
           {/* Branding */}
           <div className='flex gap-x-3 w-fit mt-3 mx-auto items-center'>
             <img src={Logo} alt="logo" className='h-7 w-7' />
