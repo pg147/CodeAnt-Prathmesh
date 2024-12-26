@@ -126,7 +126,7 @@ export default function SignIn() {
 
       {/* Right Container */}
       <div className="h-screen flex justify-center items-center w-full px-4 lg:px-0 lg:w-1/2 bg-light">
-        <div className='bg-white w-full xl:w-[500px] 2xl:w-[650px] mx-auto rounded-3xl border-x-outline p-4 lg:p-6'>
+        <div className='bg-white w-full xl:w-[500px] 2xl:w-[650px] mx-auto rounded-3xl border-[1.5px] border-outline p-4 lg:p-6'>
           {/* Branding */}
           <div className='flex gap-x-3 w-fit mt-3 mx-auto items-center'>
             <img src={Logo} alt="logo" className='h-7 w-7' />
