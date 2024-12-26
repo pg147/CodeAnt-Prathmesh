@@ -154,7 +154,8 @@ export default function SignIn() {
           </div>
 
           <hr className='w-full my-7' />
-
+          
+          {/* Conditional Rendering */}
           {tabIndex === 'saas' ? (
             <div className='w-full grid gap-y-3'>
               {saasAuthOptions.map((options, index) => (
