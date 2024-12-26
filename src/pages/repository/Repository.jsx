@@ -1,6 +1,11 @@
+// React Imports
 import { useState } from 'react';
+
+// Brand Logo
 import Logo from '/logo.png';
-import { Add, Book, BoxSearch, Call, Cloud, Code, Home, Logout, Refresh, Setting, Size } from 'iconsax-react';
+
+// Iconsax Icon Library Imports
+import { Add, Book, BoxSearch, Call, CloseCircle, Cloud, Code, HambergerMenu, Home, Logout, Refresh, Setting, Size } from 'iconsax-react';
 
 const menuComponents = [
     {
@@ -97,6 +102,11 @@ const repos = [
 
 export default function Repository() {
     const [isActive, setIsActive] = useState("Repository");
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const handleClickMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    }
 
     const handleActiveLink = (link) => {
         if (link === 'Logout') {
@@ -106,6 +116,69 @@ export default function Repository() {
 
     return (
         <div className="w-full">
+            {/* Navigation Menu only for Mobile View */}
+            <div className='lg:hidden fixed top-0 bg-white z-[10] w-full flex items-center justify-between py-5 px-6 shadow-intense'>
+                {/* Branding */}
+                <div className='flex gap-x-3 w-fit items-center'>
+                    <img src={Logo} alt="logo" className='h-7 w-7' />
+                    <h1 className='text-lg'>CodeAnt AI</h1>
+                </div>
+
+                {/* Menu Trigger */}
+                <div onClick={handleClickMenu}>
+                    {!isMenuOpen ? (
+                        <HambergerMenu className='h-7 w-7 text-subHeading' />
+                    ) : (
+                        <CloseCircle className='h-7 w-7 text-primary' />
+                    )}
+                </div>
+
+            </div>
+
+            {/* Menu Content - Appears only when Menu is Triggered */}
+            <div className={`h-fit w-full fixed px-4 top-16 z-[20] bg-white ${isMenuOpen ? 'block' : 'hidden'}`}>
+                {/* Select User */}
+                <select className='mt-4 w-full py-3 px-4 rounded-2xl border-[1.75px] border-outline'>
+                    <option value="select-value">Select User</option>
+                    <option value="prathmesh-gaidhane">Prathmesh Gaidhane</option>
+                </select>
+
+                {/* Menu Components */}
+                <div className='grid mt-4'>
+                    {menuComponents.map((items, index) => (
+                        <div
+                            key={index}
+                            onClick={() => handleActiveLink(items.label)}
+                            className={`w-full h-fit flex gap-x-3 items-center rounded-2xl p-4 cursor-pointer ${isActive === items.label ? 'bg-primary my-1 text-white' : 'hover:bg-light text-black bg-none'}`}
+                        >
+                            <items.icon className="h-5 w-5" />
+                            <h1>{items.label}</h1>
+                        </div>
+                    ))}
+                </div>
+
+                {/* User Controls */}
+                <div className='grid'>
+                    {userControls.map((items, index) => (
+                        <div
+                            key={index}
+                            onClick={() => handleActiveLink(items.label)}
+                            className={`w-full h-fit flex gap-x-3 items-center rounded-2xl p-4 cursor-pointer ${isActive === items.label ? 'bg-primary my-1 text-white' : 'hover:bg-light text-black bg-none'}`}
+                        >
+                            <items.icon className="h-5 w-5" />
+                            <h1>{items.label}</h1>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            
+            {/* Opaque Screen appears when Menu is Triggered */}
+            <div className={`h-screen z-[5] ${isMenuOpen ? 'block opacity-10 pointer-events-none' : 'hidden'}`}>
+
+            </div>
+
+            {/* Web View Starts here */}
+
             {/* Left Container - Sidemenu */}
             <div className="w-[20%] fixed hidden lg:flex flex-col justify-between p-6 h-screen bg-white border-r border-r-outline">
                 <div>
@@ -152,8 +225,8 @@ export default function Repository() {
             </div>
 
             {/* Right Container */}
-            <div className="w-full lg:w-[80%] lg:absolute right-0 h-fit bg-light lg:p-6">
-                <div className='h-full w-full rounded-2xl bg-white border border-outline'>
+            <div className="w-full lg:w-[80%] lg:absolute right-0 h-fit lg:bg-light lg:p-6">
+                <div className='h-full w-full rounded-2xl mt-20 lg:mt-0 lg:bg-white lg:border lg:border-outline'>
                     <div className='p-4 lg:p-6'>
                         {/* Header */}
                         <div className='w-fit mx-auto lg:mx-0 lg:w-full h-fit grid lg:flex items-center justify-between'>
