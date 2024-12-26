@@ -8,7 +8,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/" element={<SignIn />} />
       </Routes>
     </Router>
   )
