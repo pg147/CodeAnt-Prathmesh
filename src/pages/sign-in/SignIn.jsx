@@ -156,38 +156,41 @@ export default function SignIn() {
           </div>
 
           <hr className='w-full my-7' />
-          
+
           {/* Conditional Rendering */}
           {tabIndex === 'saas' ? (
             <div className='w-full grid gap-y-3'>
               {saasAuthOptions.map((options, index) => (
-                <div
-                  key={index}
-                  className='h-fit w-full py-4 flex gap-x-4 items-center justify-center rounded-xl border border-outline cursor-pointer transition-colors duration-200 ease-in-out hover:bg-light/80'
-                >
-                  <img
-                    src={options.icon}
-                    alt={options.label + "_logo"}
-                    className='h-7 w-7'
-                  />
-                  <h1>Sign in with <span className='font-semibold'>{options.label}</span></h1>
-                </div>
+                <a key={index} href="/repository">
+                  <div
+                    className='h-fit w-full py-4 flex gap-x-4 items-center justify-center rounded-xl border border-outline cursor-pointer transition-colors duration-200 ease-in-out hover:bg-light/80'
+                  >
+                    <img
+                      src={options.icon}
+                      alt={options.label + "_logo"}
+                      className='h-7 w-7'
+                    />
+                    <h1>Sign in with <span className='font-semibold'>{options.label}</span></h1>
+                  </div>
+                </a>
               ))}
             </div>
           ) : (
             <div className='w-full grid gap-y-3'>
               {selfAuthOptions.map((options, index) => (
-                <div
-                  key={index}
-                  className='h-fit w-full py-4 flex gap-x-4 items-center justify-center rounded-xl border border-outline cursor-pointer transition-colors duration-200 ease-in-out hover:bg-light/80'
-                >
-                  <img
-                    src={options.icon}
-                    alt={options.label + "_logo"}
-                    className='h-7 w-7'
-                  />
-                  <h1>Sign in with <span className='font-semibold'>{options.label}</span></h1>
-                </div>
+                <a key={index} href="/repository">
+                  <div
+                    key={index}
+                    className='h-fit w-full py-4 flex gap-x-4 items-center justify-center rounded-xl border border-outline cursor-pointer transition-colors duration-200 ease-in-out hover:bg-light/80'
+                  >
+                    <img
+                      src={options.icon}
+                      alt={options.label + "_logo"}
+                      className='h-7 w-7'
+                    />
+                    <h1>Sign in with <span className='font-semibold'>{options.label}</span></h1>
+                  </div>
+                </a>
               ))}
             </div>
           )}
