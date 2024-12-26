@@ -45,61 +45,63 @@ const repos = [
         dateUpdated: '1 day'
     },
     {
-        name: 'design-system',
-        isPrivate: false,
-        language: 'React.js',
-        size: '7320',
-        dateUpdated: '1 day'
+        name: "task-manager",
+        isPrivate: "true",
+        language: "Python",
+        size: "4820",
+        dateUpdated: "3 days"
     },
     {
-        name: 'design-system',
-        isPrivate: false,
-        language: 'React.js',
-        size: '7320',
-        dateUpdated: '1 day'
+        name: "ecommerce-app",
+        isPrivate: "false",
+        language: "React.js",
+        size: "10540",
+        dateUpdated: "2 hours"
     },
     {
-        name: 'design-system',
-        isPrivate: false,
-        language: 'React.js',
-        size: '7320',
-        dateUpdated: '1 day'
+        name: "portfolio-site",
+        isPrivate: "true",
+        language: "HTML/CSS",
+        size: "3200",
+        dateUpdated: "1 month"
     },
     {
-        name: 'design-system',
-        isPrivate: false,
-        language: 'React.js',
-        size: '7320',
-        dateUpdated: '1 day'
+        name: "blog-engine",
+        isPrivate: "false",
+        language: "Ruby on Rails",
+        size: "8630",
+        dateUpdated: "6 days"
     },
     {
-        name: 'design-system',
-        isPrivate: false,
-        language: 'React.js',
-        size: '7320',
-        dateUpdated: '1 day'
+        name: "weather-dashboard",
+        isPrivate: "false",
+        language: "JavaScript",
+        size: "5190",
+        dateUpdated: "8 hours"
     },
     {
-        name: 'design-system',
-        isPrivate: false,
-        language: 'React.js',
-        size: '7320',
-        dateUpdated: '1 day'
+        name: "machine-learning-pipeline",
+        isPrivate: "true",
+        language: "Python",
+        size: "15230",
+        dateUpdated: "5 days"
     },
     {
-        name: 'design-system',
-        isPrivate: false,
-        language: 'React.js',
-        size: '7320',
-        dateUpdated: '1 day'
-    },
+        name: "chat-application",
+        isPrivate: "false",
+        language: "Node.js",
+        size: "10850",
+        dateUpdated: "12 hours"
+    }
 ]
 
 export default function Repository() {
     const [isActive, setIsActive] = useState("Repository");
 
     const handleActiveLink = (link) => {
-        setIsActive(link);
+        if (link === 'Logout') {
+            window.location.href = '/';
+        } else setIsActive(link);
     }
 
     return (
@@ -135,20 +137,17 @@ export default function Repository() {
                 </div>
 
                 {/* User Controls */}
-                <div>
-                    {/* Menu Components */}
-                    <div className='grid mt-4'>
-                        {userControls.map((items, index) => (
-                            <div
-                                key={index}
-                                onClick={() => handleActiveLink(items.label)}
-                                className={`w-full h-fit flex gap-x-3 items-center rounded-2xl p-4 cursor-pointer ${isActive === items.label ? 'bg-primary my-1 text-white' : 'hover:bg-light text-black bg-none'}`}
-                            >
-                                <items.icon className="h-5 w-5" />
-                                <h1 className="text-sm">{items.label}</h1>
-                            </div>
-                        ))}
-                    </div>
+                <div className='grid mt-4'>
+                    {userControls.map((items, index) => (
+                        <div
+                            key={index}
+                            onClick={() => handleActiveLink(items.label)}
+                            className={`w-full h-fit flex gap-x-3 items-center rounded-2xl p-4 cursor-pointer ${isActive === items.label ? 'bg-primary my-1 text-white' : 'hover:bg-light text-black bg-none'}`}
+                        >
+                            <items.icon className="h-5 w-5" />
+                            <h1 className="text-sm">{items.label}</h1>
+                        </div>
+                    ))}
                 </div>
             </div>
 
@@ -188,15 +187,15 @@ export default function Repository() {
 
                     <div className=''>
                         {repos.map((repos, index) => (
-                            <div key={index} className=''>
+                            <div key={index} className='hover:bg-light cursor-pointer'>
                                 <div className='p-6'>
                                     <div className='flex items-center gap-x-3'>
                                         <h1 className='font-semibold'>{repos.name}</h1>
                                         <div className='px-3 py-1 rounded-full border-[1.5px] border-primary bg-primary/20'>
-                                            <h1 className='text-xs'>{repos.isPrivate ? 'Private' : 'Public'}</h1>
+                                            <h1 className='text-xs font-semibold text-primary'>{repos.isPrivate ? 'Private' : 'Public'}</h1>
                                         </div>
                                     </div>
-                                    <div className='mt-4 flex gap-x-12 items-center'>
+                                    <div className='mt-4 flex gap-x-12 items-center text-sm'>
                                         <div className='flex items-center gap-x-3'>
                                             <h1>{repos.language}</h1>
                                             <div className='h-2 w-2 rounded-full bg-primary'>
