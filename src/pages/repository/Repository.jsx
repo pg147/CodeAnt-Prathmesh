@@ -136,7 +136,7 @@ export default function Repository() {
             </div>
 
             {/* Menu Content - Appears only when Menu is Triggered */}
-            <div className={`h-fit w-full fixed px-4 top-16 z-[20] bg-white ${isMenuOpen ? 'block' : 'hidden'}`}>
+            <div className={`h-[100%] w-full fixed px-4 top-16 z-[20] bg-white ${isMenuOpen ? 'block inset-0' : 'hidden'}`}>
                 {/* Select User */}
                 <select className='mt-4 w-full py-3 px-4 rounded-2xl border-[1.75px] border-outline'>
                     <option value="select-value">Select User</option>
@@ -173,7 +173,7 @@ export default function Repository() {
             </div>
             
             {/* Opaque Screen appears when Menu is Triggered */}
-            <div className={`h-screen z-[5] ${isMenuOpen ? 'block opacity-10 pointer-events-none' : 'hidden'}`}>
+            <div className={`h-screen z-[5] ${isMenuOpen ? 'block inset-0 opacity-10 pointer-events-none' : 'hidden'}`}>
 
             </div>
 
