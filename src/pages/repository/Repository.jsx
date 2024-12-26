@@ -106,8 +106,8 @@ export default function Repository() {
 
     return (
         <div className="w-full">
-            {/* Left Container */}
-            <div className="w-[20%] fixed flex flex-col justify-between p-6 h-screen bg-white border-r border-r-outline">
+            {/* Left Container - Sidemenu */}
+            <div className="w-[20%] fixed hidden lg:flex flex-col justify-between p-6 h-screen bg-white border-r border-r-outline">
                 <div>
                     {/* Branding */}
                     <div className='flex gap-x-3 w-fit mt-4 mx-auto items-center'>
@@ -152,17 +152,17 @@ export default function Repository() {
             </div>
 
             {/* Right Container */}
-            <div className="w-[80%] absolute right-0 h-fit bg-light p-6">
-                <div className='h-full w-full rounded-2xl bg-white border border-outline p-6'>
-                    <div>
+            <div className="w-full lg:w-[80%] lg:absolute right-0 h-fit bg-light lg:p-6">
+                <div className='h-full w-full rounded-2xl bg-white border border-outline'>
+                    <div className='p-4 lg:p-6'>
                         {/* Header */}
-                        <div className='w-full h-fit flex items-center justify-between'>
-                            <div>
+                        <div className='w-fit mx-auto lg:mx-0 lg:w-full h-fit grid lg:flex items-center justify-between'>
+                            <div className='flex w-fit mx-auto lg:mx-0 gap-x-3 items-center lg:block'>
                                 <h1 className='font-semibold text-xl'>Repositories</h1>
                                 <p className='text-sm text-subHeading'>7 Repositories</p>
                             </div>
 
-                            <div className='flex gap-x-3 h-fit w-fit'>
+                            <div className='flex gap-x-3 h-fit w-fit mt-4 lg:mt-0'>
                                 <div className='flex items-center h-fit w-fit gap-x-3 py-3 px-5 rounded-xl border border-outline hover:bg-light cursor-pointer'>
                                     <Refresh className='h-5 w-5 text-subHeading' />
                                     <p className='text-sm'>Refresh</p>
@@ -174,8 +174,8 @@ export default function Repository() {
                             </div>
                         </div>
 
-                        <div className='relative h-fit w-fit mt-4'>
-                            <input className='bg-white h-fit w-fit px-12 py-3 rounded-xl border border-outline' placeholder='Search repositories' />
+                        <div className='relative h-fit w-full lg:w-fit mt-4'>
+                            <input className='bg-white h-fit w-full lg:w-fit px-12 py-3 rounded-xl border border-outline' placeholder='Search repositories' />
                             <div className='absolute h-fit my-auto mx-4 inset-0'>
                                 <BoxSearch className='h-5 w-5 text-subHeading' />
                             </div>
@@ -183,19 +183,19 @@ export default function Repository() {
 
                     </div>
 
-                    <hr className='w-full mt-8' />
+                    <hr className='w-full mt-4' />
 
                     <div className=''>
                         {repos.map((repos, index) => (
                             <div key={index} className='hover:bg-light cursor-pointer'>
-                                <div className='p-6'>
+                                <div className='p-4 lg:p-6'>
                                     <div className='flex items-center gap-x-3'>
                                         <h1 className='font-semibold'>{repos.name}</h1>
                                         <div className='px-3 py-1 rounded-full border-[1.5px] border-primary bg-primary/20'>
                                             <h1 className='text-xs font-semibold text-primary'>{repos.isPrivate ? 'Private' : 'Public'}</h1>
                                         </div>
                                     </div>
-                                    <div className='mt-4 flex gap-x-12 items-center text-sm'>
+                                    <div className='mt-4 flex justify-between lg:justify-normal lg:gap-x-12 items-center text-sm'>
                                         <div className='flex items-center gap-x-3'>
                                             <h1>{repos.language}</h1>
                                             <div className='h-2 w-2 rounded-full bg-primary'>
