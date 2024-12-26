@@ -279,7 +279,7 @@ export default function Repository() {
                                             <h1>{repos.size} KB</h1>
                                         </div>
                                         <div>
-                                            <h1>Updated <span className='font-semibold'>{repos.dateUpdated}</span> ago</h1>
+                                            <h1 className='text-subHeading'>Updated <span className='font-semibold'>{repos.dateUpdated}</span> ago</h1>
                                         </div>
                                     </div>
                                 </div>
